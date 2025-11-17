@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <title>Anime Voice</title>
 </head>
-
+<% if (locals.content) { %>
 <body>
   <div class="frame">
     <div class="card" role="region" aria-label="Quote card">
@@ -16,7 +16,7 @@
         <div class="content">
           <div class="quote-mark">“</div>
             
-          <div class="quote-text">What are you so hesitant about?\nIt's your dream, isn't it? It's right in front of you, and you're wavering? You gotta be reckless and take whatever you can!</div>
+          <div class="quote-text"><%= content.data.content %></div>
 
           <div class="decor" aria-hidden="true">
             <div class="dot"></div>
@@ -24,8 +24,8 @@
             <div class="dot"></div>
           </div>
 
-          <div class="meta">Tomoya Okazaki</div>
-          <div class="submeta">Clannad</div>
+          <div class="meta"><%= content.data.character.name %></div>
+          <div class="submeta"><%= content.data.anime.name %></div>
 
         </div>
 
@@ -39,5 +39,7 @@
     }
     document.documentElement.style.setProperty('--card-bg', randomColor());
   </script>
+  
+  <% } %>
 </body>
 </html>
