@@ -7,8 +7,11 @@
     <title>Anime Voice</title>
 </head>
 <body>
-
-    <h1>Welcome to Anime World</h1>
+    <% if (locals.content) { %>
+        <h1><%= content.data.content %></h1>
+    <% } else { %>
+        <h1>Welcome to Anime World</h1>
+    <% } %>
     
     <form action="/submit" method="POST">
         <input type="submit" value="Generate">

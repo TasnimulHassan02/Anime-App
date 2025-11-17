@@ -12,6 +12,19 @@ app.get("/", (req,res) => {
 })
 
 
+app.post("/submit", async (req, res) => {
+try {
+    const response = await axios.get("https://api.animechan.io/v1/quotes/random");
+    const result = response.data;
+    console.log(result);
+    res.render("index.ejs", { content: result });
+  } catch (error) {
+    console.error("Failed to make request:", error.message);
+    res.render("index.ejs", {
+      error: error.message,
+    });
+  }
+});
 
 
 
